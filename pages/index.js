@@ -13,7 +13,7 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <Logo />
+        <Logo height={100} width={100} />
       </main>
 
       <footer className={styles.footer}>

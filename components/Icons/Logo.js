@@ -1,14 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const variantsLogo = {};
-
-export default function Logo() {
+export default function Logo({ width, height }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="120"
-      height="120"
+      width={width}
+      height={height}
       viewBox="0 0 120 120"
       fill="none"
     >
@@ -17,14 +15,13 @@ export default function Logo() {
         height="120"
         rx="60"
         fill="#617245"
-        // variants={variantsLogo}
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ ease: "easeInOut", duration: 1 }}
       />
       <motion.g
-        initial={{ opacity: 0, y: 100 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 100, scale: 0 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ ease: "easeInOut", duration: 1, delay: 0.5 }}
       >
         <path d="M78 32V28H74V32H78Z" fill="#B27A4C" />
