@@ -132,8 +132,8 @@ export default function ArgSvg() {
           <path d="M58.6341 73.3333V80H65.4634V73.3333H58.6341Z" fill="white" />
           <path d="M38.1463 100H44.9756V93.3333H38.1463V100Z" fill="white" />
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M229.366 86.6667H222.537V80H229.366V86.6667ZM236.195 93.3333H229.366V86.6667H236.195V93.3333ZM243.024 100V93.3333H236.195V100H243.024ZM243.024 106.667H249.854V100H243.024V106.667Z"
             fill="#537BB8"
           />
@@ -198,16 +198,16 @@ export default function ArgSvg() {
             fill="#537BB8"
           />
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M208.878 73.3333V66.6667H215.707V73.3333H208.878Z"
             fill="#537BB8"
           />
           <path d="M215.707 66.6667V60H208.878V66.6667H215.707Z" fill="white" />
           <path d="M215.707 80V73.3333H208.878V80H215.707Z" fill="white" />
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M154.244 80L133.756 80V73.3333H140.585V66.6667H147.415V73.3333L154.244 73.3333V80Z"
             fill="#131423"
           />
@@ -263,30 +263,30 @@ export default function ArgSvg() {
           />
           <path d="M277.171 80H284V73.3333H277.171V80Z" fill="#131423" />
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M10.8293 73.3333H4L4 80H10.8293L10.8293 86.6667H17.6585V93.3333H24.4878L24.4878 100H31.3171V106.667L38.1463 106.667L38.1463 100V93.3333H44.9756V86.6667H51.8049V80H58.6341V73.3333H65.4634L65.4634 66.6667H72.2927V60L79.122 60H85.9512V66.6667L92.7805 66.6667V73.3333V80L92.7805 220L195.22 220L195.22 80V73.3333V66.6667H202.049V60H208.878H215.707V66.6667H222.537V73.3333H229.366V80H236.195V86.6667H243.024V93.3333H249.854V100H256.683V93.3333H263.512V86.6667L270.341 86.6667V80H277.171V73.3333H270.341V66.6667L263.512 66.6667V60H256.683V53.3333L249.854 53.3333V46.6667H243.024V40H236.195V33.3333H229.366V26.6667L222.537 26.6667V20L208.878 20V13.3333L174.732 13.3333V20L167.902 20V26.6667H161.073V33.3333H154.244V40H147.415V46.6667H140.585V40L133.756 40V33.3333H126.927L126.927 26.6667H120.098V20H113.268V13.3333L79.122 13.3333V20L65.4634 20V26.6667H58.6341V33.3333H51.8049V40L44.9756 40L44.9756 46.6667H38.1463V53.3333H31.3171V60H24.4878L24.4878 66.6667H17.6585L17.6585 73.3333H10.8293ZM154.244 80L133.756 80V73.3333H140.585V66.6667H147.415V73.3333L154.244 73.3333V80ZM167.902 73.3333V66.6667H174.732H181.561V73.3333V80V86.6667H174.732H167.902V80V73.3333Z"
             fill="#101220"
           />
           <path
             d="M167.902 73.3333V80H174.732V73.3333H167.902Z"
             fill="#D9B625"
-            fill-opacity="0.94"
+            fillOpacity="0.94"
           />
           <path
             d="M167.902 86.6667H174.732V80H167.902V86.6667Z"
             fill="#D9B625"
-            fill-opacity="0.94"
+            fillOpacity="0.94"
           />
           <path
             d="M174.732 86.6667H181.561V80H174.732V86.6667Z"
             fill="#D9B625"
-            fill-opacity="0.94"
+            fillOpacity="0.94"
           />
           <path
             d="M181.561 80V73.3333H174.732V80H181.561Z"
             fill="#D9B625"
-            fill-opacity="0.94"
+            fillOpacity="0.94"
           />
           <path
             d="M167.902 66.6667V73.3333H174.732V66.6667H167.902Z"
@@ -305,9 +305,9 @@ export default function ArgSvg() {
             width="288"
             height="228"
             filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
             <feColorMatrix
               in="SourceAlpha"
               type="matrix"

@@ -1,22 +1,25 @@
 import React from "react";
 import Logo from "../../Icons/Logo";
+import Link from "next/link";
+import Menu from "../../Icons/Menu";
+import User from "../../Icons/User";
 
 export default function Nav() {
   return (
     <>
       <div className="container">
         <div
-          className="d-lg-none"
+          className="d-lg-none menu-icon"
           data-bs-toggle="offcanvas"
           data-bs-target="#offcanvasResponsive"
           aria-controls="offcanvasResponsive"
         >
-          Icono Menu
+          <Menu />
         </div>
 
         <div
           className="offcanvas-lg offcanvas-end"
-          tabindex="-1"
+          tabIndex="-1"
           id="offcanvasResponsive"
           aria-labelledby="offcanvasResponsiveLabel"
         >
@@ -38,9 +41,47 @@ export default function Nav() {
             </div>
             <div className="offcanvas-body d-flex justify-content-lg-end justify-content-sm-center">
               <ul className="list-group list-group-horizontal-lg align-items-center">
-                <li className="list-group-item ">Catalogue</li>
-                <li className="list-group-item">About</li>
-                <li className="list-group-item">User</li>
+                <li className="list-group-item ">
+                  <Link href="/">
+                    <a>Catalogue</a>
+                  </Link>
+                </li>
+                <li className="list-group-item ">
+                  <Link href="/About">
+                    <a>About</a>
+                  </Link>
+                </li>
+
+                <li className="list-group-item ">
+                  <div className="dropdown show">
+                    <a
+                      className="dropdown-toggle"
+                      href="#"
+                      role="button"
+                      id="dropdownMenuLink"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    >
+                      <User />
+                    </a>
+
+                    <div
+                      className="dropdown-menu"
+                      aria-labelledby="dropdownMenuLink"
+                    >
+                      <a className="dropdown-item" href="#">
+                        Wish List
+                      </a>
+                      <a className="dropdown-item" href="#">
+                        Profile
+                      </a>
+                      <a className="dropdown-item" href="#">
+                        Log out
+                      </a>
+                    </div>
+                  </div>
+                </li>
               </ul>
             </div>
           </div>
@@ -49,6 +90,17 @@ export default function Nav() {
       <style jsx>{`
         .list-group-item {
           border: none;
+        }
+
+        a {
+          font-family: "Bebas Neue", cursive;
+          text-decoration: none;
+          color: #333;
+        }
+
+        .menu-icon {
+          cursor: pointer;
+          margin-top: 10px;
         }
       `}</style>
     </>

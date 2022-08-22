@@ -4,10 +4,21 @@ import BrasilSvg from "../../components/Header/BrasilSvg";
 import FranceSvg from "../../components/Header/FranceSvg";
 import Nav from "../../components/Layout/Nav";
 import { getShirts } from "../../firebase/client";
+import Head from "next/head";
 
 export default function Home({ data }) {
   return (
     <>
+      <Head>
+        <title>My page title</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous"
+        />
+      </Head>
       <Nav />
       <header className="">
         <div className="container header-title">
@@ -36,10 +47,6 @@ export default function Home({ data }) {
 
       <style jsx>
         {`
-          .asd {
-            border: solid 2px #222;
-          }
-
           header {
             width: 100%;
             display: flex;
