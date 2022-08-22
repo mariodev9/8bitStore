@@ -1,5 +1,6 @@
 import "../styles/globals.css";
 import "bootstrap/dist/css/bootstrap.css";
+import "@popperjs/core"; // Edit here
 import { useEffect } from "react";
 import Head from "next/head";
 import Script from "next/script";
