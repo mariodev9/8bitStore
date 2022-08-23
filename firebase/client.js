@@ -34,7 +34,6 @@ export const getShirts = async () => {
     const q = query(collection(firestore, "shirts"));
     const querySnap = await getDocs(q);
     querySnap.forEach((doc) => {
-      console.log(doc.id, " => ", doc.data());
       list.push(doc.data());
     });
     return list;

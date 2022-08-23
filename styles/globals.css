@@ -15,6 +15,11 @@ a {
   margin: 0;
 }
 
+h1, h4 {
+  font-family: 'Silkscreen', cursive;  font-size: clamp(3rem, 8vw - 2rem, 7rem);
+
+}
+
 h3 {
   font-size: clamp(1rem, 8vw - 2rem, 3rem);
   font-family: 'Montserrat', sans-serif;

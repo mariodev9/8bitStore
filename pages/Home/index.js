@@ -5,6 +5,7 @@ import FranceSvg from "../../components/Header/FranceSvg";
 import Nav from "../../components/Layout/Nav";
 import { getShirts } from "../../firebase/client";
 import Head from "next/head";
+import Catalogue from "../../components/Catalogue";
 
 export default function Home({ data }) {
   return (
@@ -36,14 +37,7 @@ export default function Home({ data }) {
           </div>
         </div>
       </header>
-      <div className="container">
-        <h2>Shop</h2>
-        <ol>
-          {data.map((shirt, i) => (
-            <li key={i}>{shirt.team}</li>
-          ))}
-        </ol>
-      </div>
+      <Catalogue shirts={data} />
 
       <style jsx>
         {`

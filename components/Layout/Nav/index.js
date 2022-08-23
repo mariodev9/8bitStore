@@ -3,11 +3,51 @@ import Logo from "../../Icons/Logo";
 import Link from "next/link";
 import Menu from "../../Icons/Menu";
 import User from "../../Icons/User";
+import {
+  Drawer,
+  DrawerBody,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+  Button,
+  Input,
+  useDisclosure,
+} from "@chakra-ui/react";
 
 export default function Nav() {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const btnRef = React.useRef();
   return (
     <>
-      <div className="container">
+      <Button ref={btnRef} colorScheme="teal" onClick={onOpen}>
+        Open
+      </Button>
+      <Drawer
+        isOpen={isOpen}
+        placement="right"
+        onClose={onClose}
+        finalFocusRef={btnRef}
+      >
+        <DrawerOverlay />
+        <DrawerContent>
+          <DrawerCloseButton />
+          <DrawerHeader>Create your account</DrawerHeader>
+
+          <DrawerBody>
+            <Input placeholder="Type here..." />
+          </DrawerBody>
+
+          <DrawerFooter>
+            <Button variant="outline" mr={3} onClick={onClose}>
+              Cancel
+            </Button>
+            <Button colorScheme="blue">Save</Button>
+          </DrawerFooter>
+        </DrawerContent>
+      </Drawer>
+      {/* <div className="container">
         <div
           className="d-lg-none menu-icon"
           data-bs-toggle="offcanvas"
@@ -86,7 +126,7 @@ export default function Nav() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
       <style jsx>{`
         .list-group-item {
           border: none;
