@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Logo from "../components/Icons/Logo";
+import WelcomeLogo from "../components/Icons/WelcomeLogo";
 import styles from "../styles/Home.module.css";
 import { motion } from "framer-motion";
 
@@ -14,7 +14,7 @@ export default function Home() {
         </Head>
 
         <main className={styles.main}>
-          <Logo height={100} width={100} />
+          <WelcomeLogo height={100} width={100} />
           <motion.h1
             className="title"
             style={{ fontSize: "1.2rem", marginTop: "25px" }}

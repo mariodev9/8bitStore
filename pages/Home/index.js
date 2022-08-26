@@ -6,6 +6,7 @@ import Nav from "../../components/Layout/Nav";
 import { getShirts } from "../../firebase/client";
 import Head from "next/head";
 import Catalogue from "../../components/Catalogue";
+import { Heading, Text } from "@chakra-ui/react";
 
 export default function Home({ data }) {
   return (
@@ -26,7 +27,7 @@ export default function Home({ data }) {
           <div className="row">
             <div className="col-md-6 ">
               <h1 className="title">8bitStore</h1>
-              <h3>The store what you need</h3>
+              <Text>The store what you need</Text>
               <button className="btn btn-primary mt-5">More shirts!</button>
             </div>
             <div className="col-md-6 header-illustration  ">

@@ -13,6 +13,12 @@ import {
   onSnapshot,
 } from "firebase/firestore";
 
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
+
 const firebaseConfig = {
   apiKey: "AIzaSyDsytzmtIFpVb7Yb_3V6csKRSfPtPdNwpY",
   authDomain: "bitstore-8.firebaseapp.com",
@@ -25,8 +31,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const firestore = getFirestore(app);
-
-// const analytics = getAnalytics(app);
+const auth = getAuth(app);
 
 export const getShirts = async () => {
   let list = [];
@@ -38,4 +43,32 @@ export const getShirts = async () => {
     });
     return list;
   } catch (error) {}
+};
+
+export const Register = async ({ email, password, username }) => {
+  const userData = await createUserWithEmailAndPassword(auth, email, password)
+    .then((user) => {
+      console.log(user);
+      return user;
+    })
+    .catch((error) => {
+      if (error.code === "auth/email-already-in-use") {
+        console.log("The email address is already in use");
+      } else if (error.code === "auth/invalid-email") {
+        console.log("The email address is not valid.");
+      } else if (error.code === "auth/operation-not-allowed") {
+        console.log("Operation not allowed.");
+      } else if (error.code === "auth/weak-password") {
+        console.log("The password is too weak.");
+      } else {
+        console.log("error");
+      }
+      // para limpiar el estado error y dejar de mostrarlo
+      // setTimeout(() => {
+      //   console.log("asd");
+      // }, 3000);
+    });
+  // Register user in firestore
+  const docuRef = doc(firestore, `users/${userData.user.uid}`);
+  setDoc(docuRef, { email: email, username: username });
 };

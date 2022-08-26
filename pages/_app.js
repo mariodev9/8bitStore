@@ -2,6 +2,7 @@ import "../styles/globals.css";
 import "bootstrap/dist/css/bootstrap.css";
 import Head from "next/head";
 import { ChakraProvider } from "@chakra-ui/react";
+import theme from "../Theme/theme";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -16,7 +17,7 @@ function MyApp({ Component, pageProps }) {
           crossOrigin="anonymous"
         />
       </Head>
-      <ChakraProvider>
+      <ChakraProvider theme={theme}>
         <Component {...pageProps} />
       </ChakraProvider>
     </>
