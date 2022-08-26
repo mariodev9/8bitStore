@@ -19,8 +19,9 @@ import {
 } from "@chakra-ui/react";
 import Logo from "../../Icons/Logo";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
+import { logOut } from "../../../firebase/client";
 
-const Links = ["Dashboard", "Projects", "Team"];
+const Links = ["Shop", "News", "About"];
 
 const NavLink = ({ children }) => (
   <Link
@@ -29,7 +30,7 @@ const NavLink = ({ children }) => (
     rounded={"md"}
     _hover={{
       textDecoration: "none",
-      bg: useColorModeValue("gray.200", "gray.700"),
+      bg: "gray.200",
     }}
     href={"#"}
   >
@@ -88,7 +89,7 @@ export default function Simple() {
                 </MenuItem>
                 <MenuItem>Link 2</MenuItem>
                 <MenuDivider />
-                <MenuItem>Link 3</MenuItem>
+                <MenuItem onClick={() => logOut()}>Log out</MenuItem>
               </MenuList>
             </Menu>
           </Flex>

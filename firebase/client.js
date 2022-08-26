@@ -17,6 +17,8 @@ import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut,
 } from "firebase/auth";
 
 const firebaseConfig = {
@@ -45,30 +47,72 @@ export const getShirts = async () => {
   } catch (error) {}
 };
 
-export const Register = async ({ email, password, username }) => {
+export const sessionChange = (callback) => {
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      callback(user);
+    } else {
+      callback(null);
+    }
+  });
+};
+
+export const Login = (data, callback) => {
+  const { email, password } = data;
+  if ((email, password)) {
+    signInWithEmailAndPassword(auth, email, password)
+      .then(() => {
+        window.location.replace("/Home");
+      })
+      .catch((error) => {
+        if (error.code === "auth/wrong-password") {
+          callback("Wrong email/password!");
+        } else if (error.code === "auth/user-not-found") {
+          callback("Wrong email/password!");
+        } else {
+          callback("Error");
+        }
+        setTimeout(() => {
+          callback("");
+        }, 3000);
+      });
+  }
+};
+
+export const Register = async (data, callback) => {
+  const { email, password, username } = data;
   const userData = await createUserWithEmailAndPassword(auth, email, password)
     .then((user) => {
-      console.log(user);
       return user;
     })
     .catch((error) => {
       if (error.code === "auth/email-already-in-use") {
-        console.log("The email address is already in use");
+        callback("The email is already in use");
       } else if (error.code === "auth/invalid-email") {
-        console.log("The email address is not valid.");
+        callback("The email address is not valid.");
       } else if (error.code === "auth/operation-not-allowed") {
         console.log("Operation not allowed.");
-      } else if (error.code === "auth/weak-password") {
-        console.log("The password is too weak.");
+        callback("Operation not allowed.");
       } else {
         console.log("error");
       }
-      // para limpiar el estado error y dejar de mostrarlo
-      // setTimeout(() => {
-      //   console.log("asd");
-      // }, 3000);
+      setTimeout(() => {
+        callback("");
+      }, 3000);
     });
   // Register user in firestore
-  const docuRef = doc(firestore, `users/${userData.user.uid}`);
-  setDoc(docuRef, { email: email, username: username });
+  if (userData) {
+    const docuRef = doc(firestore, `users/${userData.user.uid}`);
+    setDoc(docuRef, { email: email, username: username });
+  }
+};
+
+export const logOut = () => {
+  signOut(auth)
+    .then(() => {
+      window.location.replace("/login");
+    })
+    .catch((error) => {
+      // An error happened.
+    });
 };
