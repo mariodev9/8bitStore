@@ -1,14 +1,34 @@
-import { useEffect, useState } from "react";
-import ArgSvg from "../../components/Header/ArgSvg";
-import BrasilSvg from "../../components/Header/BrasilSvg";
-import FranceSvg from "../../components/Header/FranceSvg";
-import Nav from "../../components/Layout/Nav";
-import { getShirts } from "../../firebase/client";
 import Head from "next/head";
-import Catalogue from "../../components/Catalogue";
-import { Heading, Text } from "@chakra-ui/react";
+import {
+  motion,
+  useElementScroll,
+  useMotionValue,
+  useScroll,
+  useTransform,
+} from "framer-motion";
+import Link from "next/link";
+import Layout from "../../components/Layout";
+import { Box, Flex, Text } from "@chakra-ui/react";
+import {
+  ArgentinaAwayShirt,
+  ArgentinaHomeShirt,
+} from "../../components/Shirts/ShirtsSvg";
+import HeaderHome from "../../components/Home/Header";
+import SwiperProducts from "../../components/Shared/SwiperProducts/SwiperProducts";
+import { useEffect, useRef, useState } from "react";
+import ArgentinaSection from "../../components/Home/ArgentinaSection/ArgentinaSection";
 
-export default function Home({ data }) {
+export default function Home() {
+  const ref = useRef();
+  const { scrollYProgress } = useScroll({ container: ref });
+  const y = useMotionValue(0);
+
+  useEffect(() => {
+    scrollYProgress.onChange((latest) => {
+      y.set(latest * 300);
+    });
+  }, []);
+
   return (
     <>
       <Head>
@@ -21,53 +41,52 @@ export default function Home({ data }) {
           crossOrigin="anonymous"
         />
       </Head>
-      <Nav />
-      <header className="">
-        <div className="container header-title">
-          <div className="row">
-            <div className="col-md-6 ">
-              <h1 className="title">8bitStore</h1>
-              <Text>The store what you need</Text>
-              <button className="btn btn-primary mt-5">More shirts!</button>
-            </div>
-            <div className="col-md-6 header-illustration  ">
-              <BrasilSvg />
-              <ArgSvg />
-              <FranceSvg />
-            </div>
-          </div>
-        </div>
-      </header>
-      <Catalogue shirts={data} />
 
-      <style jsx>
-        {`
-          header {
-            width: 100%;
-            display: flex;
-            justify-content: space-around;
-            padding: 80px 0px;
-          }
-          .header-illustration {
-            margin-top: 50px;
-            display: flex;
-          }
-
-          h1 {
-            text-shadow: 0.2rem 0.1rem #999;
-          }
-          h3 {
-            letter-spacing: 0.1em;
-            color: #777;
-            margin-left: 8px;
-          }
-        `}
-      </style>
+      <motion.div
+        ref={ref}
+        style={{
+          position: "absolute",
+          height: "110vh",
+          width: "100%",
+          overflow: "scroll",
+        }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{
+          duration: 0.75,
+          delay: 0.5,
+          ease: "easeInOut",
+        }}
+      >
+        <Layout>
+          <Flex direction={"column"} align={"center"} p={"50px 0px"}>
+            <Text
+              fontSize={{ base: "50px", md: "70px", lg: "100px" }}
+              fontWeight={800}
+            >
+              8bitfootball{" "}
+              <span style={{ fontSize: "1.2rem", fontWeight: 600 }}>STORE</span>
+            </Text>
+            <Text
+              fontSize={{ base: "15px", md: "20px", lg: "25px" }}
+              fontWeight={600}
+            >
+              The FIFA World Cup Collection is here
+            </Text>
+          </Flex>
+          <motion.div style={{ y }}>
+            <HeaderHome />
+          </motion.div>
+          <ArgentinaSection />
+          <SwiperProducts />
+        </Layout>
+      </motion.div>
     </>
   );
 }
 
-export async function getServerSideProps() {
-  const data = await getShirts();
-  return { props: { data } };
-}
+// export async function getServerSideProps() {
+//   const data = await getShirts();
+//   return { props: { data } };
+// }

@@ -32,8 +32,8 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const firestore = getFirestore(app);
-const auth = getAuth(app);
+export const firestore = getFirestore(app);
+export const auth = getAuth(app);
 
 export const getShirts = async () => {
   let list = [];
@@ -52,7 +52,7 @@ export const sessionChange = (callback) => {
     if (user) {
       callback(user);
     } else {
-      callback(null);
+      callback(undefined);
     }
   });
 };
@@ -110,7 +110,7 @@ export const Register = async (data, callback) => {
 export const logOut = () => {
   signOut(auth)
     .then(() => {
-      window.location.replace("/login");
+      window.location.replace("/SignIn");
     })
     .catch((error) => {
       // An error happened.

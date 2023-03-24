@@ -20,12 +20,12 @@ import {
 } from "@chakra-ui/react";
 import { SmallCloseIcon } from "@chakra-ui/icons";
 import { Register, sessionChange } from "../../firebase/client";
-import { Head } from "next/document";
 
 export default function Signup() {
   const [error, setError] = useState("");
-  const [dev, setDev] = useState(undefined);
+  const [user, setUser] = useState(undefined);
   const router = useRouter();
+
   const {
     register,
     handleSubmit,
@@ -33,11 +33,11 @@ export default function Signup() {
   } = useForm();
 
   useEffect(() => {
-    sessionChange(setDev);
+    sessionChange(setUser);
   }, []);
 
   useEffect(() => {
-    dev && router.replace("/Home");
+    user && router.replace("/Home");
   }, [dev]);
 
   return (

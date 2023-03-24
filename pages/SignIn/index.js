@@ -20,7 +20,7 @@ import {
 } from "@chakra-ui/react";
 import { sessionChange, Login } from "../../firebase/client";
 
-export default function index() {
+export default function SignIn() {
   const [error, setError] = useState("");
   const [dev, setDev] = useState(undefined);
   const router = useRouter();
@@ -80,6 +80,9 @@ export default function index() {
                 w="full"
                 _hover={{
                   bg: "gray.500",
+                }}
+                onClick={() => {
+                  router.push("/Home");
                 }}
               >
                 Visit

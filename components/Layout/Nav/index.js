@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, useState, useEffect } from "react";
 import {
   Box,
   Flex,
@@ -13,13 +13,13 @@ import {
   MenuItem,
   MenuDivider,
   useDisclosure,
-  useColorModeValue,
   Stack,
   Input,
 } from "@chakra-ui/react";
 import Logo from "../../Icons/Logo";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
-import { logOut } from "../../../firebase/client";
+import { getShirts, logOut, sessionChange } from "../../../firebase/client";
+import { UseDebounce } from "../../../hooks/UseDebounce";
 
 const Links = ["Shop", "News", "About"];
 
@@ -31,6 +31,7 @@ const NavLink = ({ children }) => (
     _hover={{
       textDecoration: "none",
       bg: "gray.200",
+      color: "brand.100",
     }}
     href={"#"}
   >
@@ -38,79 +39,39 @@ const NavLink = ({ children }) => (
   </Link>
 );
 
-export default function Simple() {
+export default function Navbar({ data }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [user, setUser] = useState(undefined);
+  const [search, setSearch] = useState("");
+
+  useEffect(() => {
+    sessionChange(setUser);
+    //Traer todas las camisetas para hacer el hook de autocompletado en la busqueda
+    // const d = data.filter((el) => el.toLowerCase().includes(text));
+    // setResults(d);
+  }, []);
 
   return (
     <>
-      <Box bg={useColorModeValue("gray.100", "gray.900")} px={4}>
-        <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
-          <IconButton
-            size={"md"}
-            icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
-            aria-label={"Open Menu"}
-            display={{ md: "none" }}
-            onClick={isOpen ? onClose : onOpen}
-          />
-          <HStack spacing={8} alignItems={"center"}>
-            <Box>
-              <Logo />
-            </Box>
-            <HStack
-              as={"nav"}
-              spacing={4}
-              display={{ base: "none", md: "flex" }}
-            >
-              {Links.map((link) => (
-                <NavLink key={link}>{link}</NavLink>
-              ))}
-              <Input
-                placeholder="Search your shirt"
-                variant="filled"
-                bg="gray.300"
-                size="md"
-              />
-            </HStack>
-          </HStack>
-          <Flex alignItems={"center"}>
-            <Menu>
-              <MenuButton
-                as={Button}
-                rounded={"full"}
-                variant={"link"}
-                cursor={"pointer"}
-                minW={0}
-              >
-                <Avatar size={"sm"} src={""} />
-              </MenuButton>
-              <MenuList>
-                <MenuItem>
-                  <Link href="/Signup">Signup</Link>
-                </MenuItem>
-                <MenuItem>Link 2</MenuItem>
-                <MenuDivider />
-                <MenuItem onClick={() => logOut()}>Log out</MenuItem>
-              </MenuList>
-            </Menu>
-          </Flex>
-        </Flex>
+      <Flex
+        layerStyle={"paddingX"}
+        justify={"space-between"}
+        p={"20px 40px"}
+        fontWeight={500}
+      >
+        <HStack spacing={10} w={"30%"}>
+          <Box>World Cup</Box>
+          <Box>Retro</Box>
+          <Box>Premier</Box>
+        </HStack>
 
-        {isOpen ? (
-          <Box pb={4} display={{ md: "none" }}>
-            <Stack as={"nav"} spacing={4}>
-              {Links.map((link) => (
-                <NavLink key={link}>{link}</NavLink>
-              ))}
-              <Input
-                placeholder="Search your shirt"
-                variant="filled"
-                bg="gray.300"
-                size="md"
-              />
-            </Stack>
-          </Box>
-        ) : null}
-      </Box>
+        <Logo />
+
+        <HStack justify={"end"} spacing={10} w={"30%"}>
+          <Box>About</Box>
+          <Box>Carrito</Box>
+        </HStack>
+      </Flex>
     </>
   );
 }

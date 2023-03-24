@@ -1,24 +1,22 @@
 import "../styles/globals.css";
-import "bootstrap/dist/css/bootstrap.css";
 import Head from "next/head";
 import { ChakraProvider } from "@chakra-ui/react";
 import theme from "../Theme/theme";
+import { useRouter } from "next/router";
+import { AnimatePresence } from "framer-motion";
 
 function MyApp({ Component, pageProps }) {
+  const router = useRouter();
   return (
     <>
       <Head>
         <title>8bitStore</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-          crossOrigin="anonymous"
-        />
       </Head>
       <ChakraProvider theme={theme}>
-        <Component {...pageProps} />
+        <AnimatePresence mode={"wait"}>
+          <Component key={router.pathname} {...pageProps} />
+        </AnimatePresence>
       </ChakraProvider>
     </>
   );

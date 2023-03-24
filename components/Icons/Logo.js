@@ -9,7 +9,7 @@ export default function Logo() {
       viewBox="0 0 40 40"
       fill="none"
     >
-      <ellipse cx="20" cy="19.9901" rx="20" ry="19.9901" fill="#C2C2C2" />
+      <ellipse cx="20" cy="19.9901" rx="20" ry="19.9901" fill="#617245" />
       <path
         d="M27.0707 12.5189V10.9036H25.4546V12.5189H27.0707Z"
         fill="#B27A4C"
