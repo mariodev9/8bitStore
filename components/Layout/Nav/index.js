@@ -152,11 +152,8 @@ export default function Navbar({ scrollYProgress }) {
   function update() {
     console.log(scrollYProgress);
     if (scrollYProgress?.current < scrollYProgress?.prev) {
-      console.log("hiciste para arriba");
       setHidden(false);
     } else if (scrollYProgress?.current > scrollYProgress?.prev) {
-      console.log("hiciste para abajo");
-
       setHidden(true);
     }
   }
