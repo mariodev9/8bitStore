@@ -7,6 +7,12 @@ const theme = extendTheme({
     // heading: `'Montserrat', sans-serif`,
   },
 
+  breakpoints: {
+    mobile: "360px",
+    tablet: "834px",
+    desktop: "1024px",
+  },
+
   styles: {
     global: {
       fontFamily: " 'Inter', sans-serif",
@@ -34,11 +40,11 @@ const theme = extendTheme({
     Text: {
       variants: {
         title: {
-          fontSize: "40px",
+          fontSize: { base: "30px", desktop: "40px" },
           fontWeight: 700,
         },
         simpleText: {
-          fontSize: "20px",
+          fontSize: { base: "15px", desktop: "20px" },
         },
       },
     },

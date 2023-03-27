@@ -4,6 +4,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 import theme from "../Theme/theme";
 import { useRouter } from "next/router";
 import { AnimatePresence } from "framer-motion";
+import "swiper/css";
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();

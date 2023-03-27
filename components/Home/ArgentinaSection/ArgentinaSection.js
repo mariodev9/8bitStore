@@ -7,14 +7,15 @@ export default function ArgentinaSection() {
     <Flex bg={"black.100"} mb={"40px"}>
       <Flex
         layerStyle={"paddingX"}
-        pt={"100px"}
         pos={"relative"}
+        direction={{ base: "column", tablet: "row" }}
+        pt={"100px"}
         bg={"black.100"}
         w={"full"}
-        zIndex={99}
+        zIndex={98}
         color={"#fff"}
       >
-        <Box w={"70%"} pb={"100px"}>
+        <Box w={{ base: "100%", tablet: "70%" }} pb={"100px"}>
           <Text variant={"title"}>
             <span style={{ color: "#6AD2FF" }}>Argentina</span> wins the FIFA
             World Cup

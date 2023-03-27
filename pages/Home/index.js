@@ -59,22 +59,36 @@ export default function Home() {
           ease: "easeInOut",
         }}
       >
-        <Layout>
-          <Flex direction={"column"} align={"center"} p={"50px 0px"}>
-            <Text
-              fontSize={{ base: "50px", md: "70px", lg: "100px" }}
-              fontWeight={800}
-            >
-              8bitfootball{" "}
-              <span style={{ fontSize: "1.2rem", fontWeight: 600 }}>STORE</span>
-            </Text>
-            <Text
-              fontSize={{ base: "15px", md: "20px", lg: "25px" }}
-              fontWeight={600}
-            >
-              The FIFA World Cup Collection is here
-            </Text>
-          </Flex>
+        <Layout scrollYProgress={scrollYProgress}>
+          <motion.div
+            initial={{ y: 200 }}
+            animate={{ y: 0 }}
+            transition={{
+              duration: 1,
+              ease: [0.6, 0.01, -0.05, 0.95],
+              duration: 1.6,
+            }}
+            style={{ marginTop: "10vh" }}
+          >
+            <Flex direction={"column"} align={"center"}>
+              <Text
+                fontSize={{ base: "50px", md: "70px", lg: "100px" }}
+                fontWeight={800}
+              >
+                8bitfootball
+                <span style={{ fontSize: "1.2rem", fontWeight: 600 }}>
+                  STORE
+                </span>
+              </Text>
+              <Text
+                fontSize={{ base: "15px", md: "20px", lg: "25px" }}
+                fontWeight={600}
+              >
+                The FIFA World Cup Collection is here
+              </Text>
+            </Flex>
+          </motion.div>
+
           <motion.div style={{ y }}>
             <HeaderHome />
           </motion.div>
@@ -85,8 +99,3 @@ export default function Home() {
     </>
   );
 }
-
-// export async function getServerSideProps() {
-//   const data = await getShirts();
-//   return { props: { data } };
-// }

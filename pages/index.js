@@ -3,7 +3,6 @@ import WelcomeLogo from "../components/Icons/WelcomeLogo";
 import { motion } from "framer-motion";
 import { Box, Flex, Text } from "@chakra-ui/react";
 import { useRouter } from "next/router";
-import "swiper/css";
 
 export default function Home() {
   const router = useRouter();

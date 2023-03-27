@@ -15,51 +15,51 @@ export default function SwiperProducts() {
       >
         New Arrivals
       </Text>
-      <Swiper
-        style={{
-          paddingLeft: "70px",
-          display: "flex",
-          cursor: "pointer",
-        }}
-        breakpoints={{
-          0: {
-            slidesPerView: 2,
-          },
-          450: {
-            slidesPerView: 2,
-          },
-          850: {
-            slidesPerView: 2.5,
-          },
-          1000: {
-            slidesPerView: 3.5,
-          },
-          1100: {
-            slidesPerView: 4,
-          },
-        }}
-        spaceBetween={30}
-        slidesPerView={4}
-      >
-        {ShirtsList.map((product) => (
-          <SwiperSlide
-            key={product.id}
-            // style={{
-            // }}
-          >
-            <Flex
-              backgroundColor="#F5F5F5"
-              direction={"column"}
-              w={"full"}
-              align={"center"}
-              p={"20px 0px"}
+      <Box>
+        <Swiper
+          style={{
+            paddingLeft: "70px",
+            cursor: "pointer",
+          }}
+          breakpoints={{
+            0: {
+              slidesPerView: 2,
+            },
+            450: {
+              slidesPerView: 2,
+            },
+            850: {
+              slidesPerView: 2.5,
+            },
+            1000: {
+              slidesPerView: 3.5,
+            },
+            1100: {
+              slidesPerView: 4,
+            },
+          }}
+          spaceBetween={30}
+        >
+          {ShirtsList.map((product) => (
+            <SwiperSlide
+              key={product.id}
+              // style={{
+              // }}
             >
-              {product.img}
-            </Flex>
-            <Text>{product.title}</Text>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+              <Flex
+                backgroundColor="#F5F5F5"
+                direction={"column"}
+                w={"full"}
+                align={"center"}
+                p={"20px 0px"}
+              >
+                {product.img}
+              </Flex>
+              <Text>{product.title}</Text>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </Box>
     </Box>
   );
 }
