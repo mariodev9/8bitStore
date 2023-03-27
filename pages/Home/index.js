@@ -68,7 +68,7 @@ export default function Home() {
               ease: [0.6, 0.01, -0.05, 0.95],
               duration: 1.6,
             }}
-            style={{ marginTop: "10vh" }}
+            style={{ marginTop: "25vh" }}
           >
             <Flex direction={"column"} align={"center"}>
               <Text
