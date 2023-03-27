@@ -150,7 +150,6 @@ export default function Navbar({ scrollYProgress }) {
   const [hidden, setHidden] = useState(false);
 
   function update() {
-    console.log(scrollYProgress);
     if (scrollYProgress?.current < scrollYProgress?.prev) {
       setHidden(false);
     } else if (scrollYProgress?.current > scrollYProgress?.prev) {
