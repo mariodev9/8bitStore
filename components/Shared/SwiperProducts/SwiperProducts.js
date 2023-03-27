@@ -22,10 +22,13 @@ export default function SwiperProducts() {
             cursor: "pointer",
           }}
           breakpoints={{
-            0: {
-              slidesPerView: 2,
+            320: {
+              slidesPerView: 1,
             },
             450: {
+              slidesPerView: 1.5,
+            },
+            590: {
               slidesPerView: 2,
             },
             850: {
@@ -34,7 +37,7 @@ export default function SwiperProducts() {
             1000: {
               slidesPerView: 3.5,
             },
-            1100: {
+            1200: {
               slidesPerView: 4,
             },
           }}

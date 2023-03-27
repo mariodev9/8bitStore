@@ -1,4 +1,4 @@
-import { Box, Flex } from "@chakra-ui/react";
+import { Box, Flex, useMediaQuery } from "@chakra-ui/react";
 import React from "react";
 import { motion } from "framer-motion";
 import {
@@ -8,6 +8,11 @@ import {
 } from "../../Shirts/ShirtsSvg";
 
 export default function HeaderHome() {
+  const [isLargerThan450] = useMediaQuery("(min-width: 450px)", {
+    ssr: true,
+    fallback: false, // return false on the server, and re-evaluate on the client side
+  });
+
   return (
     <motion.div>
       <Flex justify={"center"} pt={"70px"}>
@@ -19,9 +24,13 @@ export default function HeaderHome() {
             delay: 1,
             ease: "easeInOut",
           }}
-          style={{ position: "absolute", left: "100px" }}
+          style={{
+            position: "absolute",
+            left: isLargerThan450 ? "100px" : "10px",
+            // top: !isLargerThan450 ? "250px" : "0px",
+          }}
         >
-          <ArgentinaAwayShirt />
+          <ArgentinaAwayShirt width={{ base: "140px", desktop: "280px" }} />
         </motion.div>
         <motion.div
           initial={{ y: 100, opacity: 0, scale: 0 }}
@@ -31,9 +40,13 @@ export default function HeaderHome() {
             delay: 1,
             ease: "easeInOut",
           }}
-          style={{ position: "absolute", right: "100px" }}
+          style={{
+            position: "absolute",
+            right: isLargerThan450 ? "100px" : "10px",
+            // top: !isLargerThan450 ? "220px" : "100px",
+          }}
         >
-          <CroaciaHomeShirt />
+          <CroaciaHomeShirt width={{ base: "140px", desktop: "280px" }} />
         </motion.div>
 
         {/* el valor que cambia ocn el parallax es la Y: se va escondiendo en la seccion de messi */}
@@ -46,7 +59,10 @@ export default function HeaderHome() {
             type: "spring",
           }}
         >
-          <ArgentinaHomeShirt width="427" height="369" />
+          <ArgentinaHomeShirt
+            width={{ base: "213px", desktop: "427px" }}
+            height={{ base: "184px", desktop: "369px" }}
+          />
         </motion.div>
       </Flex>
     </motion.div>
