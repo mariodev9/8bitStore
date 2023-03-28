@@ -1,10 +1,15 @@
-import { Box, Flex, Text } from "@chakra-ui/react";
+import { Box, Flex, Text, useMediaQuery } from "@chakra-ui/react";
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import { ShirtsList } from "../../Shirts/ShirtsList";
 
 export default function SwiperProducts({ title }) {
+  const [isLargerThan767] = useMediaQuery("(min-width: 767px)", {
+    ssr: true,
+    fallback: false, // return false on the server, and re-evaluate on the client side
+  });
+
   return (
     <Box p={"0px 0px 50px"}>
       <Text
@@ -18,7 +23,7 @@ export default function SwiperProducts({ title }) {
       <Box>
         <Swiper
           style={{
-            paddingLeft: "70px",
+            paddingLeft: isLargerThan767 ? "70px" : "30px",
             cursor: "pointer",
           }}
           breakpoints={{
@@ -58,7 +63,9 @@ export default function SwiperProducts({ title }) {
               >
                 {product.img}
               </Flex>
-              <Text>{product.title}</Text>
+              <Text pt={"10px"} color={"#000"} fontWeight={600}>
+                {product.title}
+              </Text>
             </SwiperSlide>
           ))}
         </Swiper>

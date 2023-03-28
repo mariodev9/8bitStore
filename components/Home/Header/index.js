@@ -27,14 +27,14 @@ export default function HeaderHome() {
           style={{
             position: "absolute",
             left: isLargerThan450 ? "100px" : "10px",
-            // top: !isLargerThan450 ? "250px" : "0px",
+            zIndex: -1,
           }}
         >
           <ArgentinaAwayShirt width={{ base: "140px", desktop: "280px" }} />
         </motion.div>
         <motion.div
           initial={{ y: 100, opacity: 0, scale: 0 }}
-          animate={{ y: 0, opacity: 1, rotateZ: 30, scale: 1 }}
+          animate={{ y: 0, opacity: 1, rotateZ: 40, scale: 1 }}
           transition={{
             duration: 1,
             delay: 1,
@@ -42,7 +42,8 @@ export default function HeaderHome() {
           }}
           style={{
             position: "absolute",
-            right: isLargerThan450 ? "100px" : "10px",
+            right: isLargerThan450 ? "100px" : "50px",
+            zIndex: -1,
             // top: !isLargerThan450 ? "220px" : "100px",
           }}
         >

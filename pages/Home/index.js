@@ -86,7 +86,15 @@ export default function Home() {
               >
                 The new FIFA World Cup Collection is here
               </Text>
-              <Button mt={"15px"} bg={"yellow.300"}>
+              <Button
+                _hover={{
+                  backgroundColor: "yellow.100",
+                }}
+                borderRadius={"0px"}
+                p={"8px 16px"}
+                mt={"15px"}
+                bg={"#FFEB36"}
+              >
                 Get now
               </Button>
             </Flex>

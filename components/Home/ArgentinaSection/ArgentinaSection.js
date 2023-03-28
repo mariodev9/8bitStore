@@ -1,5 +1,6 @@
 import { Flex, Box, Text } from "@chakra-ui/react";
 import React from "react";
+import { MessiFigure } from "../../Icons";
 import { ArgentinaAwayShirt } from "../../Shirts/ShirtsSvg";
 
 export default function ArgentinaSection() {
@@ -31,7 +32,7 @@ export default function ArgentinaSection() {
           </Text>
         </Box>
         <Flex w={"full"} justify={"center"} align={"end"}>
-          <ArgentinaAwayShirt />
+          <MessiFigure />
         </Flex>
       </Flex>
     </Flex>
