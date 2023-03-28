@@ -556,8 +556,8 @@ export const MessiFigure = () => (
     />
     <path d="M58.0741 108H41.4815V116.308H58.0741V108Z" fill="#0F0C0B" />
     <path
-      fill-rule="evenodd"
-      clip-rule="evenodd"
+      fillRule="evenodd"
+      clipRule="evenodd"
       d="M91.2593 108H107.852V116.308H91.2593V108Z"
       fill="#0F0C0B"
     />
@@ -669,8 +669,8 @@ export const MessiFigure = () => (
     <path d="M91.2593 149.538V141.231H82.963V149.538H91.2593Z" fill="#B37045" />
     <path d="M82.963 149.538H66.3704V157.846H82.963V149.538Z" fill="#B37045" />
     <path
-      fill-rule="evenodd"
-      clip-rule="evenodd"
+      fillRule="evenodd"
+      clipRule="evenodd"
       d="M132.741 141.231V124.615V116.308V99.6923H124.444H116.148V91.3846H107.852V58.1538H74.6667V66.4615H66.3704H58.0741V58.1538H49.7778V66.4615H41.4815V91.3846H33.1852V99.6923H24.8889H16.5926V116.308V124.615V141.231H24.8889H33.1852V157.846H49.7778V166.154H58.0741V157.846V149.538V141.231H66.3704V149.538H82.963V141.231H91.2593V149.538V157.846H116.148V141.231H124.444H132.741ZM41.4815 108V99.6923H66.3704V108H74.6667V132.923H66.3704V116.308H58.0741V124.615H41.4815V116.308H33.1852V108H41.4815ZM82.963 108V99.6923H107.852V108H116.148V116.308H107.852V124.615H91.2593V116.308H82.963V108Z"
       fill="#E9B384"
     />
@@ -757,8 +757,8 @@ export const MessiFigure = () => (
       fill="#5F8091"
     />
     <path
-      fill-rule="evenodd"
-      clip-rule="evenodd"
+      fillRule="evenodd"
+      clipRule="evenodd"
       d="M74.6667 290.769H82.963V315.692H74.6667V290.769Z"
       fill="#5F8091"
     />
@@ -815,8 +815,8 @@ export const MessiFigure = () => (
     <path d="M16.5926 232.615H8.2963V240.923H16.5926V232.615Z" fill="#5C5B56" />
     <path d="M41.4815 224.308V216H33.1852V224.308H41.4815Z" fill="#5C5B56" />
     <path
-      fill-rule="evenodd"
-      clip-rule="evenodd"
+      fillRule="evenodd"
+      clipRule="evenodd"
       d="M16.5926 224.308H33.1852V232.615H16.5926V224.308Z"
       fill="#5C5B56"
     />
@@ -971,8 +971,8 @@ export const MessiFigure = () => (
       fill="#C7D1DD"
     />
     <path
-      fill-rule="evenodd"
-      clip-rule="evenodd"
+      fillRule="evenodd"
+      clipRule="evenodd"
       d="M99.5556 515.077H107.852V523.385H99.5556H91.2593V515.077H99.5556Z"
       fill="#C8B58A"
     />
