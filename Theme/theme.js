@@ -37,6 +37,7 @@ const theme = extendTheme({
   },
 
   components: {
+    Button: {},
     Text: {
       variants: {
         title: {

@@ -8,7 +8,7 @@ import {
 } from "framer-motion";
 import Link from "next/link";
 import Layout from "../../components/Layout";
-import { Box, Flex, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, Text } from "@chakra-ui/react";
 import {
   ArgentinaAwayShirt,
   ArgentinaHomeShirt,
@@ -25,7 +25,7 @@ export default function Home() {
 
   useEffect(() => {
     scrollYProgress.onChange((latest) => {
-      y.set(latest * 300);
+      y.set(latest * 350);
     });
   }, []);
 
@@ -84,8 +84,11 @@ export default function Home() {
                 fontSize={{ base: "15px", md: "20px", lg: "25px" }}
                 fontWeight={600}
               >
-                The FIFA World Cup Collection is here
+                The new FIFA World Cup Collection is here
               </Text>
+              <Button mt={"15px"} bg={"yellow.300"}>
+                Get now
+              </Button>
             </Flex>
           </motion.div>
 
@@ -93,7 +96,8 @@ export default function Home() {
             <HeaderHome />
           </motion.div>
           <ArgentinaSection />
-          <SwiperProducts />
+          <SwiperProducts title={"New Arrivals"} />
+          <SwiperProducts title={"Most Popular"} />
         </Layout>
       </motion.div>
     </>

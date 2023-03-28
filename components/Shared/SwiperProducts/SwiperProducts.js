@@ -4,16 +4,16 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 import { ShirtsList } from "../../Shirts/ShirtsList";
 
-export default function SwiperProducts() {
+export default function SwiperProducts({ title }) {
   return (
-    <Box p={"50px 0px 100px"}>
+    <Box p={"0px 0px 50px"}>
       <Text
         layerStyle={"paddingX"}
         pb={"10px"}
         fontWeight={700}
         fontSize={"35px"}
       >
-        New Arrivals
+        {title}
       </Text>
       <Box>
         <Swiper
