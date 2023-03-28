@@ -4,8 +4,6 @@ import {
   Flex,
   HStack,
   Text,
-  Link,
-  IconButton,
   Button,
   Drawer,
   DrawerBody,
@@ -15,35 +13,23 @@ import {
   DrawerCloseButton,
   useDisclosure,
   VStack,
-  Accordion,
-  AccordionItem,
-  AccordionButton,
-  AccordionIcon,
-  AccordionPanel,
+  Link,
 } from "@chakra-ui/react";
 import { Logo, MenuIcon } from "../../Icons";
-import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
-import { getShirts, logOut, sessionChange } from "../../../firebase/client";
-import { UseDebounce } from "../../../hooks/UseDebounce";
+
 import { motion, useScroll } from "framer-motion";
+import NextLink from "next/link";
+import { useRouter } from "next/router";
 
 // const Links = ["Shop", "News", "About"];
 
-// const NavLink = ({ children }) => (
-//   <Link
-//     px={2}
-//     py={1}
-//     rounded={"md"}
-//     _hover={{
-//       textDecoration: "none",
-//       bg: "gray.200",
-//       color: "brand.100",
-//     }}
-//     href={"#"}
-//   >
-//     {children}
-//   </Link>
-// );
+const NavLink = ({ children, href }) => (
+  <NextLink href={href} passHref>
+    <Link _hover={{ textDecoration: "none", color: "#465e33" }}>
+      {children}
+    </Link>
+  </NextLink>
+);
 
 const MobileNav = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -75,40 +61,7 @@ const MobileNav = () => {
               fontSize={"30px"}
               align={"center"}
               justify={"center"}
-            >
-              {/* <Accordion allowToggle>
-                <AccordionItem>
-                  <h2>
-                    <AccordionButton
-                      fontWeight={600}
-                      fontSize={"30px"}
-                      p={"5px 20px"}
-                      _hover={{
-                        bg: "yellow.100",
-                      }}
-                      borderRadius={"25px"}
-                    >
-                      <Text>Productos</Text>
-                      <AccordionIcon />
-                    </AccordionButton>
-                  </h2>
-                  <AccordionPanel pb={4} fontSize={"25px"} textAlign={"center"}>
-                    <Box>
-                      <Link href="/Collares">Collares</Link>
-                    </Box>
-                    <Box>
-                      <Link href="/Cadenas">Cadenas</Link>
-                    </Box>
-                    <Box>
-                      <Link href="/Pulseras">Pulseras</Link>
-                    </Box>
-                    <Box>
-                      <Link href="/Billeteras">Billeteras</Link>
-                    </Box>
-                  </AccordionPanel>
-                </AccordionItem>
-              </Accordion> */}
-            </VStack>
+            ></VStack>
           </DrawerBody>
 
           <DrawerFooter></DrawerFooter>
@@ -118,28 +71,33 @@ const MobileNav = () => {
   );
 };
 
-const DesktopNav = () => (
-  <Flex
-    display={{ base: "none", tablet: "flex" }}
-    layerStyle={"paddingX"}
-    justify={"space-between"}
-    p={"20px 40px"}
-    fontWeight={500}
-  >
-    <HStack spacing={10} w={"30%"}>
-      <Box>World Cup</Box>
-      <Box>Retro</Box>
-      <Box>Premier</Box>
-    </HStack>
+const DesktopNav = () => {
+  const router = useRouter();
 
-    <Logo />
+  return (
+    <Flex
+      display={{ base: "none", tablet: "flex" }}
+      layerStyle={"paddingX"}
+      justify={"space-between"}
+      p={"20px 40px"}
+      fontWeight={500}
+    >
+      <HStack spacing={10} w={"30%"}>
+        <NavLink href={"/WorldCup"}> World Cup</NavLink>
+        <NavLink href={"/Retro"}>Retro</NavLink>
+        <NavLink href={"/PremierLeague"}>Premier</NavLink>
+      </HStack>
+      <Box cursor={"pointer"} onClick={() => router.push("/Home")}>
+        <Logo />
+      </Box>
 
-    <HStack justify={"end"} spacing={10} w={"30%"}>
-      <Box>About</Box>
-      <Box>Carrito</Box>
-    </HStack>
-  </Flex>
-);
+      <HStack justify={"end"} spacing={10} w={"30%"}>
+        <NavLink href={"/About"}>About</NavLink>
+        <Box>Carrito</Box>
+      </HStack>
+    </Flex>
+  );
+};
 
 const variants = {
   visible: { y: 0, opacity: 1 },

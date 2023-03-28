@@ -17,7 +17,7 @@ export default function ArgentinaSection() {
         color={"#fff"}
       >
         <Box w={{ base: "100%", tablet: "70%" }} pb={"100px"}>
-          <Text variant={"title"}>
+          <Text variant={"sectionTitle"}>
             <span style={{ color: "#6AD2FF" }}>Argentina</span> wins the FIFA
             World Cup
           </Text>

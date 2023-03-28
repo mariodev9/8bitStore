@@ -68,13 +68,9 @@ export default function Home() {
               ease: [0.6, 0.01, -0.05, 0.95],
               duration: 1.6,
             }}
-            style={{ marginTop: "25vh" }}
           >
             <Flex direction={"column"} align={"center"}>
-              <Text
-                fontSize={{ base: "50px", md: "70px", lg: "100px" }}
-                fontWeight={800}
-              >
+              <Text variant={"title"}>
                 8bitfootball
                 <span style={{ fontSize: "1.2rem", fontWeight: 600 }}>
                   STORE

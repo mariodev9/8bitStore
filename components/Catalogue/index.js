@@ -1,5 +1,4 @@
 import React from "react";
-import ShirtItem from "../ShirtItem";
 import { Grid, GridItem, Text } from "@chakra-ui/react";
 
 export default function Catalogue({ shirts }) {
