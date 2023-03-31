@@ -37,7 +37,7 @@ export default function Home() {
           <WelcomeLogo />
           <motion.h1
             style={{
-              fontSize: "1.2rem",
+              fontSize: "1.5rem",
               marginTop: "20px",
             }}
             initial={{ opacity: 0, y: 10 }}
@@ -49,7 +49,6 @@ export default function Home() {
           <motion.h2
             style={{
               marginTop: "-5px",
-
               letterSpacing: "2px",
               color: "#444",
             }}
@@ -57,7 +56,7 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.3, type: "spring", duration: 1.4 }}
           >
-            store
+            STORE
           </motion.h2>
         </Flex>
       </motion.div>
