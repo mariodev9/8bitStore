@@ -46,9 +46,10 @@ const theme = extendTheme({
         title: {
           fontSize: { base: "35px", md: "70px", lg: "100px" },
           fontWeight: 800,
+          textAlign: "center",
         },
         sectionTitle: {
-          fontSize: { base: "30px", desktop: "40px" },
+          fontSize: { base: "20px", desktop: "30px" },
           fontWeight: 700,
         },
         simpleText: {
