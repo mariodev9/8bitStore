@@ -15,6 +15,7 @@ import Layout from "../../components/Layout";
 import { ShirtsList } from "../../components/Shirts/ShirtsList";
 import NextLink from "next/link";
 import ShirtGridItem from "../../components/Shared/ShirtGridItem";
+import GridProductsList from "../../components/Shared/GridProductsList/GridProductsList";
 
 export default function WorldCupPage() {
   const ref = useRef();
@@ -56,22 +57,7 @@ export default function WorldCupPage() {
             <DibuFigure />
           </motion.div>
         </Flex>
-        <Box layerStyle={"paddingX"} mt={"50px"}>
-          <Text variant={"sectionTitle"}>Collection of FIFA World Cup</Text>
-          <Grid
-            py={"30px"}
-            templateColumns={{
-              base: "repeat(1, 1fr)",
-              tablet: "repeat(2, 1fr)",
-              desktop: "repeat(3, 1fr)",
-            }}
-            gap={6}
-          >
-            {ShirtsList.map((shirt) => (
-              <ShirtGridItem key={shirt.id} {...shirt} />
-            ))}
-          </Grid>
-        </Box>
+        <GridProductsList title={"FIFA World Cup Collection"} />
       </Layout>
     </motion.div>
   );

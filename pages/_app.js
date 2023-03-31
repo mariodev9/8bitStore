@@ -15,11 +15,11 @@ function MyApp({ Component, pageProps }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <ChakraProvider theme={theme}>
-        <AnimatePresence mode={"wait"}>
-          <AnimateSharedLayout>
+        <AnimateSharedLayout>
+          <AnimatePresence mode={"wait"}>
             <Component key={router.pathname} {...pageProps} />
-          </AnimateSharedLayout>
-        </AnimatePresence>
+          </AnimatePresence>
+        </AnimateSharedLayout>
       </ChakraProvider>
     </>
   );

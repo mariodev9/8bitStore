@@ -24,10 +24,9 @@ export default function PremierLeaguePage() {
       }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
+      exit={{ x: 3000 }}
       transition={{
         duration: 0.75,
-        delay: 0.5,
         ease: "easeInOut",
       }}
     >

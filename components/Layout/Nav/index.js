@@ -42,7 +42,7 @@ const MobileNav = () => {
         align={"center"}
         p={"20px 40px"}
       >
-        <Button onClick={onOpen}>
+        <Button onClick={onOpen} _hover={{ bg: "brand.100" }}>
           <MenuIcon />
         </Button>
         <Logo />
@@ -61,7 +61,15 @@ const MobileNav = () => {
               fontSize={"30px"}
               align={"center"}
               justify={"center"}
-            ></VStack>
+            >
+              <NavLink href={"/Home"}> Home</NavLink>
+              <NavLink href={"/WorldCup"}> World Cup Collection</NavLink>
+              <NavLink href={"/Retro"}> Retro Shirts</NavLink>
+              <NavLink href={"/PremierLeague"}>
+                {" "}
+                Premier League Collection
+              </NavLink>
+            </VStack>
           </DrawerBody>
 
           <DrawerFooter></DrawerFooter>

@@ -5,8 +5,8 @@ export const ArgentinaAwayShirt = (props) => {
   return (
     <Icon
       xmlns="http://www.w3.org/2000/svg"
-      width="280px"
-      height="220px"
+      width="100%"
+      height="100%"
       viewBox="0 0 277 227"
       fill="none"
       {...props}
@@ -743,8 +743,8 @@ export const ArgentinaHomeShirt = (props) => {
   return (
     <Icon
       xmlns="http://www.w3.org/2000/svg"
-      width="280px"
-      height="220px"
+      width="100%"
+      height="100%"
       viewBox="0 0 474 409"
       fill="none"
       {...props}
@@ -893,8 +893,8 @@ export const CroaciaHomeShirt = (props) => {
   return (
     <Icon
       xmlns="http://www.w3.org/2000/svg"
-      width="280px"
-      height="220px"
+      width="100%"
+      height="100%"
       viewBox="0 0 303 259"
       fill="none"
       {...props}
@@ -1149,8 +1149,8 @@ export const BrasilHomeShirt02 = (props) => {
   return (
     <Icon
       xmlns="http://www.w3.org/2000/svg"
-      width="280px"
-      height="220px"
+      width="100%"
+      height="100%"
       viewBox="0 0 288 228"
       fill="none"
       {...props}
@@ -1336,8 +1336,8 @@ export const ArgentinaHomeShirt02 = (props) => {
   return (
     <Icon
       xmlns="http://www.w3.org/2000/svg"
-      width="280px"
-      height="220px"
+      width="100%"
+      height="100%"
       viewBox="0 0 288 228"
       fill="none"
       {...props}
@@ -1653,8 +1653,8 @@ export const FranceHomeShirt98 = (props) => {
   return (
     <Icon
       xmlns="http://www.w3.org/2000/svg"
-      width="280px"
-      height="220px"
+      width="100%"
+      height="100%"
       viewBox="0 0 288 228"
       fill="none"
       {...props}

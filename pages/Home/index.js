@@ -9,19 +9,19 @@ import {
 import Link from "next/link";
 import Layout from "../../components/Layout";
 import { Box, Button, Flex, Text } from "@chakra-ui/react";
-import {
-  ArgentinaAwayShirt,
-  ArgentinaHomeShirt,
-} from "../../components/Shirts/ShirtsSvg";
+
 import HeaderHome from "../../components/Home/Header";
-import SwiperProducts from "../../components/Shared/SwiperProducts/SwiperProducts";
-import { useEffect, useRef, useState } from "react";
+import SwiperProducts from "../../components/Shared/ProductsSwiper/SwiperProducts";
+import { useEffect, useRef } from "react";
 import ArgentinaSection from "../../components/Home/ArgentinaSection/ArgentinaSection";
+import { useRouter } from "next/router";
 
 export default function Home() {
   const ref = useRef();
-  const { scrollYProgress } = useScroll({ container: ref });
+  const router = useRouter();
+
   const y = useMotionValue(0);
+  const { scrollYProgress } = useScroll({ container: ref });
 
   useEffect(() => {
     scrollYProgress.onChange((latest) => {
@@ -90,6 +90,7 @@ export default function Home() {
                 p={"8px 16px"}
                 mt={"15px"}
                 bg={"#FFEB36"}
+                onClick={() => router.push("/WorldCup")}
               >
                 Get now
               </Button>
