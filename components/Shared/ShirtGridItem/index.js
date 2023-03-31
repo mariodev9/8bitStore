@@ -15,9 +15,9 @@ export default function ShirtGridItem({ id, title, img, price }) {
       <LinkOverlay as={NextLink} href={`/Product/${id}`}>
         <GridItem w="100%">
           <motion.div layoutId={id}>
-            <Center py={"20px"} bg="#F5F5F5">
+            <Center py={"30px"} bg="#F5F5F5">
               <Box width="280px" height="220px">
-                {img}
+                <motion.div whileHover={{ scale: 1.1 }}>{img}</motion.div>
               </Box>
             </Center>
           </motion.div>

@@ -25,7 +25,10 @@ import { useRouter } from "next/router";
 
 const NavLink = ({ children, href }) => (
   <NextLink href={href} passHref>
-    <Link _hover={{ textDecoration: "none", color: "#465e33" }}>
+    <Link
+      textAlign="center"
+      _hover={{ textDecoration: "none", color: "#465e33" }}
+    >
       {children}
     </Link>
   </NextLink>
@@ -66,7 +69,6 @@ const MobileNav = () => {
               <NavLink href={"/WorldCup"}> World Cup Collection</NavLink>
               <NavLink href={"/Retro"}> Retro Shirts</NavLink>
               <NavLink href={"/PremierLeague"}>
-                {" "}
                 Premier League Collection
               </NavLink>
             </VStack>
