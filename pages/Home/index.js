@@ -21,11 +21,17 @@ export default function Home() {
   const router = useRouter();
 
   const y = useMotionValue(0);
+  const yTitle = useMotionValue(0);
   const { scrollYProgress } = useScroll({ container: ref });
 
   useEffect(() => {
     scrollYProgress.onChange((latest) => {
-      y.set(latest * 350);
+      console.log(scrollYProgress);
+
+      y.set(latest * 750);
+      yTitle.set(latest * 300);
+
+      // cuando se scrollea para abajo se agranda, hacer que se achique, (mriar valores de scrollprogress)
     });
   }, []);
 
@@ -52,10 +58,9 @@ export default function Home() {
         }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
+        exit={{ x: 3000 }}
         transition={{
           duration: 0.75,
-          delay: 0.5,
           ease: "easeInOut",
         }}
       >
@@ -70,12 +75,14 @@ export default function Home() {
             }}
           >
             <Flex direction={"column"} align={"center"}>
-              <Text variant={"title"}>
-                8bitfootball
-                <span style={{ fontSize: "1.2rem", fontWeight: 600 }}>
-                  STORE
-                </span>
-              </Text>
+              <motion.div style={{ y: yTitle }}>
+                <Text variant={"title"}>
+                  8bitfootball
+                  <span style={{ fontSize: "1.2rem", fontWeight: 600 }}>
+                    STORE
+                  </span>
+                </Text>
+              </motion.div>
               <Text
                 fontSize={{ base: "15px", md: "20px", lg: "25px" }}
                 fontWeight={600}

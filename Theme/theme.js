@@ -49,7 +49,7 @@ const theme = extendTheme({
           textAlign: "center",
         },
         sectionTitle: {
-          fontSize: { base: "20px", desktop: "30px" },
+          fontSize: { base: "25px", desktop: "30px" },
           fontWeight: 700,
         },
         simpleText: {

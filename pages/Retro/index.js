@@ -11,10 +11,40 @@ import {
   TottiFigure,
 } from "../../components/Icons";
 import GridProductsList from "../../components/Shared/GridProductsList/GridProductsList";
+import { ShirtsList } from "../../components/Shirts/ShirtsList";
+
+const figureList = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.3,
+      delay: 0.3,
+    },
+  },
+};
+
+const figure = {
+  hidden: {
+    opacity: 0,
+    y: 100,
+  },
+  show: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      duration: 1,
+    },
+  },
+};
 
 export default function RetroPage() {
   const ref = useRef();
   const { scrollYProgress } = useScroll({ container: ref });
+
+  const retroShirts = ShirtsList.filter((item) => item.retro === true);
+
   return (
     <motion.div
       ref={ref}
@@ -24,12 +54,11 @@ export default function RetroPage() {
         width: "100%",
         overflow: "scroll",
       }}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
+      initial={{ x: -3000 }}
+      animate={{ x: 0 }}
+      exit={{ x: 3000 }}
       transition={{
         duration: 0.75,
-        delay: 0.5,
         ease: "easeInOut",
       }}
     >
@@ -40,14 +69,35 @@ export default function RetroPage() {
             <Text fontSize={{ base: "10px", tablet: "20px", desktop: "30px" }}>
               Find the jerseys worn by many world football legends.
             </Text>
-            <Flex mt={"30px"} gap={10} align={"end"}>
-              <TottiFigure />
-              <AdrianoFigure />
-              <BaggioFigure />
-            </Flex>
+
+            <motion.div
+              style={{
+                display: "flex",
+                marginTop: "30px",
+                gap: 10,
+                alignItems: "end",
+              }}
+              variants={figureList}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+            >
+              <motion.div variants={figure}>
+                <TottiFigure />
+              </motion.div>
+              <motion.div variants={figure}>
+                <AdrianoFigure />
+              </motion.div>
+              <motion.div variants={figure}>
+                <BaggioFigure />
+              </motion.div>
+            </motion.div>
           </Flex>
         </Box>
-        <GridProductsList title={"Retro Shirts Collection"} />
+        <GridProductsList
+          title={"Retro Shirts Collection"}
+          shirts={retroShirts}
+        />
       </Layout>
     </motion.div>
   );

@@ -14,18 +14,31 @@ import { motion, useScroll } from "framer-motion";
 import { useRef } from "react";
 import Layout from "../../components/Layout";
 import Sizes from "../../components/Product/Sizes";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import CartContext from "../../context/CartContext";
 
 export default function ProductItemPage() {
   const ref = useRef();
   const router = useRouter();
   const [active, setActive] = useState("");
+  const [error, setError] = useState("");
+
+  const { AddProductToCart } = useContext(CartContext);
 
   const { scrollYProgress } = useScroll({ container: ref });
 
   const { id } = router.query;
 
   const productItem = ShirtsList.find((shirt) => shirt.id == id);
+
+  function handleAddProduct() {
+    if (active != "") {
+      setError("");
+      AddProductToCart({ size: active, ...productItem });
+    } else {
+      setError("pone el size!");
+    }
+  }
 
   return (
     <motion.div
@@ -35,12 +48,11 @@ export default function ProductItemPage() {
         height: "110vh",
         width: "100%",
         overflow: "scroll",
+        // backgroundColor: "#fff",
       }}
-      initial={{ x: 0 }}
-      animate={{ x: 0 }}
       exit={{ opacity: 0 }}
       transition={{
-        duration: 0.75,
+        duration: 0.5,
         ease: "easeInOut",
       }}
     >
@@ -60,23 +72,36 @@ export default function ProductItemPage() {
               </Flex>
             </GridItem>
             <GridItem>
-              <Box py={"50px"} px={{ base: "0px", tablet: " 40px" }}>
-                <VStack align={"start"} spacing={2}>
-                  <Text fontSize={"40px"} fontWeight={600}>
-                    {productItem?.title}
-                  </Text>
-                  <Text fontSize={"30px"} fontWeight={500}>
-                    ${productItem?.price}
-                  </Text>
-                  <Text color={"#444"} fontSize={"20px"} fontWeight={400}>
-                    {productItem?.colors}
-                  </Text>
-                  <Sizes active={active} setActive={setActive} />
-                </VStack>
-                <Button bg={"#000"} color={"#fff"} w={"full"} mt={"30px"}>
-                  Add to cart
-                </Button>
-              </Box>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.5 }}
+              >
+                <Box py={"50px"} px={{ base: "0px", tablet: " 40px" }}>
+                  <VStack align={"start"} spacing={2}>
+                    <Text fontSize={"40px"} fontWeight={600}>
+                      {productItem?.title}
+                    </Text>
+                    <Text fontSize={"30px"} fontWeight={500}>
+                      ${productItem?.price}
+                    </Text>
+                    <Text color={"#444"} fontSize={"20px"} fontWeight={400}>
+                      {productItem?.colors}
+                    </Text>
+                    <Sizes active={active} setActive={setActive} />
+                  </VStack>
+                  {error && active === "" && <Text h={"10px"}>{error}</Text>}
+                  <Button
+                    bg={"#000"}
+                    color={"#fff"}
+                    w={"full"}
+                    mt={"30px"}
+                    onClick={handleAddProduct}
+                  >
+                    Add to cart
+                  </Button>
+                </Box>
+              </motion.div>
             </GridItem>
           </Grid>
         </Box>

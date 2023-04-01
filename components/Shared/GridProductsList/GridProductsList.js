@@ -3,7 +3,7 @@ import React from "react";
 import { ShirtsList } from "../../Shirts/ShirtsList";
 import ShirtGridItem from "../ShirtGridItem";
 
-export default function GridProductsList({ title }) {
+export default function GridProductsList({ title, shirts }) {
   return (
     <Box layerStyle={"paddingX"} mt={"50px"}>
       <Text variant={"sectionTitle"}>{title}</Text>
@@ -16,7 +16,7 @@ export default function GridProductsList({ title }) {
         }}
         gap={6}
       >
-        {ShirtsList.map((shirt) => (
+        {shirts.map((shirt) => (
           <ShirtGridItem key={shirt.id} {...shirt} />
         ))}
       </Grid>

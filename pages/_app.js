@@ -5,6 +5,7 @@ import theme from "../Theme/theme";
 import { useRouter } from "next/router";
 import { AnimatePresence, AnimateSharedLayout } from "framer-motion";
 import "swiper/css";
+import UseCartContext from "../context/UseCartContext";
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
@@ -14,13 +15,15 @@ function MyApp({ Component, pageProps }) {
         <title>8bitStore</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <ChakraProvider theme={theme}>
-        <AnimateSharedLayout>
-          <AnimatePresence mode={"wait"}>
-            <Component key={router.pathname} {...pageProps} />
-          </AnimatePresence>
-        </AnimateSharedLayout>
-      </ChakraProvider>
+      <UseCartContext>
+        <ChakraProvider theme={theme}>
+          <AnimateSharedLayout>
+            <AnimatePresence mode={"wait"}>
+              <Component key={router.pathname} {...pageProps} />
+            </AnimatePresence>
+          </AnimateSharedLayout>
+        </ChakraProvider>
+      </UseCartContext>
     </>
   );
 }

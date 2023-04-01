@@ -9,6 +9,33 @@ import {
 } from "../../components/Icons";
 import Layout from "../../components/Layout";
 import GridProductsList from "../../components/Shared/GridProductsList/GridProductsList";
+import { ShirtsList } from "../../components/Shirts/ShirtsList";
+
+const figureList = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      delay: 0.3,
+    },
+  },
+};
+
+const figure = {
+  hidden: {
+    opacity: 0,
+    x: 100,
+  },
+  show: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      duration: 1,
+    },
+  },
+};
 
 export default function PremierLeaguePage() {
   const ref = useRef();
@@ -22,8 +49,8 @@ export default function PremierLeaguePage() {
         width: "100%",
         overflow: "scroll",
       }}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
+      initial={{ x: -3000 }}
+      animate={{ x: 0 }}
       exit={{ x: 3000 }}
       transition={{
         duration: 0.75,
@@ -39,12 +66,31 @@ export default function PremierLeaguePage() {
             </Text>
           </Flex>
         </Box>
-        <Flex mt={"30px"} gap={10} justify={"center"} align={"center"}>
-          <GundoganFigure />
-          <SalahFigure />
-          <SakaFigure />
-        </Flex>
-        <GridProductsList title={"PL Shirts Collection"} />
+
+        <motion.div
+          style={{
+            display: "flex",
+            marginTop: "30px",
+            gap: 10,
+            alignItems: "end",
+            justifyContent: "center",
+          }}
+          variants={figureList}
+          initial="hidden"
+          whileInView="show"
+        >
+          <motion.div variants={figure}>
+            <GundoganFigure />
+          </motion.div>
+          <motion.div variants={figure}>
+            <SalahFigure />
+          </motion.div>
+          <motion.div variants={figure}>
+            <SakaFigure />
+          </motion.div>
+        </motion.div>
+
+        <GridProductsList title={"PL Shirts Collection"} shirts={ShirtsList} />
       </Layout>
     </motion.div>
   );

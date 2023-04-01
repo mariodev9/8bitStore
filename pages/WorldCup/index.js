@@ -1,21 +1,10 @@
 import { useRef } from "react";
-import {
-  Box,
-  Center,
-  Flex,
-  Grid,
-  GridItem,
-  LinkBox,
-  LinkOverlay,
-  Text,
-} from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 import { motion, useScroll } from "framer-motion";
 import { DibuFigure, WorldCupTitle } from "../../components/Icons";
 import Layout from "../../components/Layout";
-import { ShirtsList } from "../../components/Shirts/ShirtsList";
-import NextLink from "next/link";
-import ShirtGridItem from "../../components/Shared/ShirtGridItem";
 import GridProductsList from "../../components/Shared/GridProductsList/GridProductsList";
+import { ShirtsList } from "../../components/Shirts/ShirtsList";
 
 export default function WorldCupPage() {
   const ref = useRef();
@@ -33,8 +22,7 @@ export default function WorldCupPage() {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{
-        duration: 0.75,
-        delay: 0.5,
+        duration: 0.3,
         ease: "easeInOut",
       }}
     >
@@ -57,7 +45,7 @@ export default function WorldCupPage() {
             <DibuFigure />
           </motion.div>
         </Flex>
-        <GridProductsList title={"FIFA World Cup Collection"} />
+        <GridProductsList title={"FIFA World Cup Shirts"} shirts={ShirtsList} />
       </Layout>
     </motion.div>
   );

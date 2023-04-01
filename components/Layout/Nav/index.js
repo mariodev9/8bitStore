@@ -1,4 +1,4 @@
-import { ReactNode, useState, useEffect } from "react";
+import { ReactNode, useState, useEffect, useContext } from "react";
 import {
   Box,
   Flex,
@@ -15,17 +15,19 @@ import {
   VStack,
   Link,
 } from "@chakra-ui/react";
-import { Logo, MenuIcon } from "../../Icons";
+import { CartIcon, Logo, MenuIcon } from "../../Icons";
 
 import { motion, useScroll } from "framer-motion";
 import NextLink from "next/link";
 import { useRouter } from "next/router";
+import CartContext from "../../../context/CartContext";
 
 // const Links = ["Shop", "News", "About"];
 
 const NavLink = ({ children, href }) => (
   <NextLink href={href} passHref>
     <Link
+      color={"#000"}
       textAlign="center"
       _hover={{ textDecoration: "none", color: "#465e33" }}
     >
@@ -34,7 +36,48 @@ const NavLink = ({ children, href }) => (
   </NextLink>
 );
 
+const CartButton = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { cart } = useContext(CartContext);
+
+  return (
+    <>
+      <Button borderRadius={"0px"} onClick={onOpen}>
+        <CartIcon />
+        {cart.reduce((count, curItem) => {
+          return count + curItem.quantity;
+        }, 0)}
+      </Button>
+
+      <Drawer isOpen={isOpen} placement="right" onClose={onClose} size={"lg"}>
+        <DrawerOverlay />
+        <DrawerContent bg={"#fff"}>
+          <DrawerCloseButton />
+
+          <DrawerBody>
+            Shoppin Cart
+            <Flex direction={"column"} gap={5} py={"20px"}>
+              {cart.map((item) => (
+                <Flex key={item.id} align={"start"} justify={"space-between"}>
+                  <Box w={"25%"} h={"25%"}>
+                    {item.img}
+                  </Box>
+                  <Text>{item.title}</Text>
+                  <Text>{item.size}</Text>
+                  <Text>{item.quantity}</Text>
+                </Flex>
+              ))}
+            </Flex>
+          </DrawerBody>
+          <DrawerFooter>Swipe for delete</DrawerFooter>
+        </DrawerContent>
+      </Drawer>
+    </>
+  );
+};
+
 const MobileNav = () => {
+  const router = useRouter();
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
@@ -45,11 +88,17 @@ const MobileNav = () => {
         align={"center"}
         p={"20px 40px"}
       >
-        <Button onClick={onOpen} _hover={{ bg: "brand.100" }}>
+        <Button
+          borderRadius={"0px"}
+          onClick={onOpen}
+          _hover={{ bg: "brand.100" }}
+        >
           <MenuIcon />
         </Button>
-        <Logo />
-        <Text>Carrito</Text>
+        <Box cursor={"pointer"} onClick={() => router.push("/Home")}>
+          <Logo />
+        </Box>
+        <CartButton />
       </Flex>
       <Drawer isOpen={isOpen} placement="left" onClose={onClose} size={"lg"}>
         <DrawerOverlay />
@@ -73,8 +122,6 @@ const MobileNav = () => {
               </NavLink>
             </VStack>
           </DrawerBody>
-
-          <DrawerFooter></DrawerFooter>
         </DrawerContent>
       </Drawer>
     </>
@@ -103,7 +150,7 @@ const DesktopNav = () => {
 
       <HStack justify={"end"} spacing={10} w={"30%"}>
         <NavLink href={"/About"}>About</NavLink>
-        <Box>Carrito</Box>
+        <CartButton />
       </HStack>
     </Flex>
   );
