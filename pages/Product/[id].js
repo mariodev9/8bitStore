@@ -45,7 +45,7 @@ export default function ProductItemPage() {
       ref={ref}
       style={{
         position: "absolute",
-        height: "110vh",
+        height: "100vh",
         width: "100%",
         overflow: "scroll",
         // backgroundColor: "#fff",

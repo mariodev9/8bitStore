@@ -16,9 +16,7 @@ export default function ShirtGridItem({ id, title, img, price }) {
         <GridItem w="100%">
           <motion.div layoutId={id}>
             <Center py={"30px"} bg="#F5F5F5">
-              <Box width="280px" height="220px">
-                <motion.div whileHover={{ scale: 1.1 }}>{img}</motion.div>
-              </Box>
+              <motion.div whileHover={{ scale: 1.1 }}>{img}</motion.div>
             </Center>
           </motion.div>
 

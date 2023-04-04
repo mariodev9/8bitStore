@@ -40,6 +40,9 @@ const figure = {
 export default function PremierLeaguePage() {
   const ref = useRef();
   const { scrollYProgress } = useScroll({ container: ref });
+
+  const PLShirts = ShirtsList.filter((item) => item.premier === true);
+
   return (
     <motion.div
       ref={ref}
@@ -90,7 +93,7 @@ export default function PremierLeaguePage() {
           </motion.div>
         </motion.div>
 
-        <GridProductsList title={"PL Shirts Collection"} shirts={ShirtsList} />
+        <GridProductsList title={"PL Shirts Collection"} shirts={PLShirts} />
       </Layout>
     </motion.div>
   );

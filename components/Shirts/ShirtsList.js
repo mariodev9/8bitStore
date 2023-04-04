@@ -11,6 +11,12 @@ import {
   EnglandHomeShirt98,
   AlemaniaHomeShirt90,
   CroaciaHomeShirt98,
+  ChelseaHomeShirt23,
+  TottenhamHomeShirt23,
+  ArsenalHomeShirt23,
+  UnitedHomeShirt23,
+  CityHomeShirt23,
+  BrightonHomeShirt23,
 } from "./ShirtsSvg";
 
 export const ShirtsList = [
@@ -23,6 +29,7 @@ export const ShirtsList = [
     img: <ArgentinaHomeShirt />,
     newArrival: true,
     retro: false,
+    premier: false,
   },
   {
     id: 2,
@@ -33,6 +40,7 @@ export const ShirtsList = [
     img: <ArgentinaAwayShirt />,
     newArrival: true,
     retro: false,
+    premier: false,
   },
   {
     id: 3,
@@ -43,6 +51,7 @@ export const ShirtsList = [
     img: <CroaciaHomeShirt />,
     newArrival: true,
     retro: false,
+    premier: false,
   },
   {
     id: 4,
@@ -53,6 +62,7 @@ export const ShirtsList = [
     img: <BrasilHomeShirt02 />,
     newArrival: false,
     retro: true,
+    premier: false,
   },
   {
     id: 5,
@@ -63,6 +73,7 @@ export const ShirtsList = [
     img: <FranceHomeShirt98 />,
     newArrival: false,
     retro: true,
+    premier: false,
   },
   {
     id: 6,
@@ -72,6 +83,7 @@ export const ShirtsList = [
     img: <ArgentinaHomeShirt02 />,
     newArrival: false,
     retro: true,
+    premier: false,
   },
   {
     id: 7,
@@ -81,6 +93,7 @@ export const ShirtsList = [
     img: <MexicoHomeShirt98 />,
     newArrival: false,
     retro: true,
+    premier: false,
   },
   {
     id: 8,
@@ -90,6 +103,7 @@ export const ShirtsList = [
     img: <JuventusAwayShirt96 />,
     newArrival: false,
     retro: true,
+    premier: false,
   },
   {
     id: 9,
@@ -99,6 +113,7 @@ export const ShirtsList = [
     img: <EnglandHomeShirt98 />,
     newArrival: false,
     retro: true,
+    premier: false,
   },
   {
     id: 10,
@@ -108,6 +123,7 @@ export const ShirtsList = [
     img: <AlemaniaHomeShirt90 />,
     newArrival: false,
     retro: true,
+    premier: false,
   },
   {
     id: 11,
@@ -117,5 +133,66 @@ export const ShirtsList = [
     img: <CroaciaHomeShirt98 />,
     newArrival: false,
     retro: true,
+    premier: false,
+  },
+  {
+    id: 12,
+    title: "Chelsea 2023 Home",
+    price: "120",
+    type: "Home",
+    img: <ChelseaHomeShirt23 />,
+    newArrival: true,
+    retro: false,
+    premier: true,
+  },
+  {
+    id: 13,
+    title: "Tottenham 2023 Home",
+    price: "120",
+    type: "Home",
+    img: <TottenhamHomeShirt23 />,
+    newArrival: false,
+    retro: false,
+    premier: true,
+  },
+  {
+    id: 14,
+    title: "Arsenal 2023 Home",
+    price: "120",
+    type: "Home",
+    img: <ArsenalHomeShirt23 />,
+    newArrival: false,
+    retro: false,
+    premier: true,
+  },
+  {
+    id: 15,
+    title: "Manchester United 2023 Home",
+    price: "120",
+    type: "Home",
+    img: <UnitedHomeShirt23 />,
+    newArrival: false,
+    retro: false,
+    premier: true,
+  },
+  {
+    id: 16,
+    title: "Manchester City 2023 Home",
+    price: "120",
+    type: "Home",
+    img: <CityHomeShirt23 />,
+    newArrival: false,
+    retro: false,
+    premier: true,
+  },
+  {
+    id: 17,
+    title: "Brighton City 2023 Home",
+    price: "120",
+    type: "Home",
+    img: <BrightonHomeShirt23 />,
+    newArrival: false,
+    retro: false,
+    premier: true,
   },
 ];
