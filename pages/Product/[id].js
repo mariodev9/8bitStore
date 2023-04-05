@@ -38,7 +38,7 @@ export default function ProductItemPage() {
     if (active != "") {
       toast({
         title: "ADDED TO CART SUCCESSFULLY!",
-        description: "New product in cart",
+        description: `${productItem.title}, size: ${active} in Cart`,
         status: "success",
         duration: 4000,
         isClosable: true,

@@ -15,6 +15,8 @@ import SwiperProducts from "../../components/Shared/ProductsSwiper/SwiperProduct
 import { useEffect, useRef } from "react";
 import ArgentinaSection from "../../components/Home/ArgentinaSection/ArgentinaSection";
 import { useRouter } from "next/router";
+import { ShirtsList } from "../../components/Shirts/ShirtsList";
+import GridProductList from "../../components/Shared/GridProductsList/GridProductsList";
 
 export default function Home() {
   const ref = useRef();
@@ -23,6 +25,12 @@ export default function Home() {
   const y = useMotionValue(0);
   const yTitle = useMotionValue(0);
   const { scrollYProgress } = useScroll({ container: ref });
+
+  const newArrivalsShirts = ShirtsList.filter(
+    (item) => item.newArrival === true
+  );
+
+  const popularShirts = ShirtsList.filter((item) => item.popular === true);
 
   useEffect(() => {
     scrollYProgress.onChange((latest) => {
@@ -106,8 +114,8 @@ export default function Home() {
             <HeaderHome />
           </motion.div>
           <ArgentinaSection />
-          <SwiperProducts title={"New Arrivals"} />
-          <SwiperProducts title={"Most Popular"} />
+          <SwiperProducts title={"New Arrivals"} shirts={newArrivalsShirts} />
+          <GridProductList title={"Most Popular"} shirts={popularShirts} />
         </Layout>
       </motion.div>
     </>

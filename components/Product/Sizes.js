@@ -37,7 +37,7 @@ export default function Sizes({ active, setActive }) {
   return (
     <Box>
       <Text color={"#000"} fontSize={"20px"} fontWeight={500}>
-        Talles
+        Sizes
       </Text>
       <Flex mt={"10px"} gap={4}>
         {["XS", "S", "M", "L", "XL"].map((item) => (

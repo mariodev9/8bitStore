@@ -37,10 +37,9 @@ const NavLink = ({ children, href }) => (
   </NextLink>
 );
 
-const CartButton = () => {
+const CartButton = ({ subtotal }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { cart } = useContext(CartContext);
-
   return (
     <>
       <Button borderRadius={"0px"} onClick={onOpen}>
@@ -53,7 +52,7 @@ const CartButton = () => {
       <Drawer isOpen={isOpen} placement="right" onClose={onClose} size={"lg"}>
         <DrawerOverlay />
         <DrawerContent bg={"#fff"}>
-          <DrawerCloseButton />
+          <DrawerCloseButton zIndex={99} bg={"#fff"} />
 
           <DrawerBody>
             <Text fontSize={"24px"} fontWeight={700}>
@@ -65,7 +64,31 @@ const CartButton = () => {
               ))}
             </Flex>
           </DrawerBody>
-          <DrawerFooter>Swipe for delete</DrawerFooter>
+          <DrawerFooter bg={"#f5f5f5"}>
+            <Flex
+              direction={"column"}
+              color={"#000"}
+              w={"full"}
+              align={"start"}
+              gap={3}
+            >
+              <Text fontWeight={600} fontSize={"22px"}>
+                Total:{" "}
+                {cart.reduce((count, curItem) => {
+                  return count + curItem.price * curItem.quantity;
+                }, 0)}
+              </Text>
+              <Button
+                fontSize={"20px"}
+                color={"#fff"}
+                w={"full"}
+                bg={"brand.100"}
+                _hover={{ bg: "green" }}
+              >
+                Checkout
+              </Button>
+            </Flex>
+          </DrawerFooter>
         </DrawerContent>
       </Drawer>
     </>

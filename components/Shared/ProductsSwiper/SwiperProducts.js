@@ -38,7 +38,7 @@ function SlideItem({ id, title, img }) {
   );
 }
 
-export default function SwiperProducts({ title }) {
+export default function SwiperProducts({ title, shirts }) {
   const [isLargerThan767] = useMediaQuery("(min-width: 767px)", {
     ssr: true,
     fallback: false, // return false on the server, and re-evaluate on the client side
@@ -54,8 +54,11 @@ export default function SwiperProducts({ title }) {
       >
         {title}
       </Text>
+
       <Box>
         <Swiper
+          observeParents={true}
+          observer={true}
           style={{
             paddingLeft: isLargerThan767 ? "70px" : "30px",
             cursor: "pointer",
@@ -77,12 +80,12 @@ export default function SwiperProducts({ title }) {
               slidesPerView: 3.5,
             },
             1200: {
-              slidesPerView: 4,
+              slidesPerView: 4.5,
             },
           }}
           spaceBetween={30}
         >
-          {ShirtsList.map((product) => (
+          {shirts.map((product) => (
             <SwiperSlide key={product.id}>
               <SlideItem {...product} />
             </SwiperSlide>
