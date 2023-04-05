@@ -1,8 +1,42 @@
-import { Box, Flex, Text, useMediaQuery } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  LinkBox,
+  LinkOverlay,
+  Text,
+  useMediaQuery,
+} from "@chakra-ui/react";
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import NextLink from "next/link";
+import { motion } from "framer-motion";
 
 import { ShirtsList } from "../../Shirts/ShirtsList";
+
+function SlideItem({ id, title, img }) {
+  return (
+    <>
+      <LinkBox cursor={"pointer"} as="article">
+        <LinkOverlay as={NextLink} href={`/Product/${id}`}>
+          <Box>
+            <Flex
+              backgroundColor="#F5F5F5"
+              direction={"column"}
+              w={"full"}
+              align={"center"}
+              p={"20px 0px"}
+            >
+              <motion.div layoutId={id}>{img}</motion.div>
+            </Flex>
+            <Text pt={"10px"} color={"#000"} fontWeight={600}>
+              {title}
+            </Text>
+          </Box>
+        </LinkOverlay>
+      </LinkBox>
+    </>
+  );
+}
 
 export default function SwiperProducts({ title }) {
   const [isLargerThan767] = useMediaQuery("(min-width: 767px)", {
@@ -49,23 +83,8 @@ export default function SwiperProducts({ title }) {
           spaceBetween={30}
         >
           {ShirtsList.map((product) => (
-            <SwiperSlide
-              key={product.id}
-              // style={{
-              // }}
-            >
-              <Flex
-                backgroundColor="#F5F5F5"
-                direction={"column"}
-                w={"full"}
-                align={"center"}
-                p={"20px 0px"}
-              >
-                {product.img}
-              </Flex>
-              <Text pt={"10px"} color={"#000"} fontWeight={600}>
-                {product.title}
-              </Text>
+            <SwiperSlide key={product.id}>
+              <SlideItem {...product} />
             </SwiperSlide>
           ))}
         </Swiper>

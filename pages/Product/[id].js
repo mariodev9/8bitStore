@@ -7,6 +7,7 @@ import {
   GridItem,
   Text,
   VStack,
+  useToast,
 } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { ShirtsList } from "../../components/Shirts/ShirtsList";
@@ -20,6 +21,8 @@ import CartContext from "../../context/CartContext";
 export default function ProductItemPage() {
   const ref = useRef();
   const router = useRouter();
+  const toast = useToast();
+
   const [active, setActive] = useState("");
   const [error, setError] = useState("");
 
@@ -33,6 +36,13 @@ export default function ProductItemPage() {
 
   function handleAddProduct() {
     if (active != "") {
+      toast({
+        title: "ADDED TO CART SUCCESSFULLY!",
+        description: "New product in cart",
+        status: "success",
+        duration: 4000,
+        isClosable: true,
+      });
       setError("");
       AddProductToCart({ size: active, ...productItem });
     } else {

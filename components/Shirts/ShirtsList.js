@@ -56,7 +56,7 @@ export const ShirtsList = [
   },
   {
     id: 3,
-    title: "Croacia 2022",
+    title: "Croatia 2022",
     price: "50",
     type: "Home",
     colors: "White / Red",
@@ -68,7 +68,7 @@ export const ShirtsList = [
   },
   {
     id: 4,
-    title: "Brasil Home 2002",
+    title: "Brazil Home 2002",
     price: "70",
     type: "Home",
     colors: "White / Yellow",
@@ -136,7 +136,7 @@ export const ShirtsList = [
   },
   {
     id: 10,
-    title: "Alemania 1990 Home",
+    title: "Germany 1990 Home",
     price: "120",
     type: "Home",
     img: <AlemaniaHomeShirt90 />,
@@ -147,7 +147,7 @@ export const ShirtsList = [
   },
   {
     id: 11,
-    title: "Croacia 1998 Home",
+    title: "Croatia 1998 Home",
     price: "120",
     type: "Home",
     img: <CroaciaHomeShirt98 />,
@@ -280,7 +280,7 @@ export const ShirtsList = [
   },
   {
     id: 23,
-    title: "Marruecos 2022 Home",
+    title: "Morocco 2022 Home",
     price: "120",
     type: "Home",
     img: <MarruecosHomeShirt22 />,
@@ -324,7 +324,7 @@ export const ShirtsList = [
   },
   {
     id: 27,
-    title: "Brasil 2022 Home",
+    title: "Brazil 2022 Home",
     price: "120",
     type: "Home",
     img: <BrasilHomeShirt22 />,

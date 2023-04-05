@@ -7,7 +7,7 @@ export default function Layout({ children, scrollYProgress }) {
   return (
     <>
       <Navbar scrollYProgress={scrollYProgress} />
-      <Box my={"20vh"}>{children}</Box>
+      <Box mt={"20vh"}>{children}</Box>
       <Footer />
     </>
   );
