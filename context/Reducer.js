@@ -4,13 +4,16 @@ export const REMOVE_PRODUCT = "REMOVE_PRODUCT";
 const AddProductToCart = (product, state) => {
   const updatedCart = [...state.cart];
 
+  //  si es que NO EXISTE en el carrito, ni siquiera el mismo TALLE, se agrega al carrito el producto
   const updatedItemIndex = updatedCart.findIndex(
     (item) => item.id === product.id && item.size === product.size
   );
 
+  // se agrega el producto al carro
   if (updatedItemIndex < 0) {
     updatedCart.push({ ...product, quantity: 1 });
   } else {
+    // sino se suma la cantidad del mismo producto
     const updatedItem = {
       ...updatedCart[updatedItemIndex],
     };
@@ -21,10 +24,10 @@ const AddProductToCart = (product, state) => {
   return { cart: updatedCart, total: state.total++ };
 };
 
-const RemoveProductFromCart = (productId, state) => {
+const RemoveProductFromCart = (product, state) => {
   const updatedCart = [...state.cart];
   const updatedItemIndex = updatedCart.findIndex(
-    (item) => item.id === productId
+    (item) => item.id === product.id && item.size === product.size
   );
 
   const updatedItem = {

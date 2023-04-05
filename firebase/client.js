@@ -91,7 +91,6 @@ export const Register = async (data, callback) => {
       } else if (error.code === "auth/invalid-email") {
         callback("The email address is not valid.");
       } else if (error.code === "auth/operation-not-allowed") {
-        console.log("Operation not allowed.");
         callback("Operation not allowed.");
       } else {
         console.log("error");

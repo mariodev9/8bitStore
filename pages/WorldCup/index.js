@@ -9,6 +9,9 @@ import { ShirtsList } from "../../components/Shirts/ShirtsList";
 export default function WorldCupPage() {
   const ref = useRef();
   const { scrollYProgress } = useScroll({ container: ref });
+
+  const worldCupShirts = ShirtsList.filter((item) => item.newArrival === true);
+
   return (
     <motion.div
       ref={ref}
@@ -45,7 +48,10 @@ export default function WorldCupPage() {
             <DibuFigure />
           </motion.div>
         </Flex>
-        <GridProductsList title={"FIFA World Cup Shirts"} shirts={ShirtsList} />
+        <GridProductsList
+          title={"FIFA World Cup Shirts"}
+          shirts={worldCupShirts}
+        />
       </Layout>
     </motion.div>
   );

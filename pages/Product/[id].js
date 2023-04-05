@@ -36,7 +36,7 @@ export default function ProductItemPage() {
       setError("");
       AddProductToCart({ size: active, ...productItem });
     } else {
-      setError("pone el size!");
+      setError("You have to choose a size");
     }
   }
 
@@ -90,7 +90,13 @@ export default function ProductItemPage() {
                     </Text>
                     <Sizes active={active} setActive={setActive} />
                   </VStack>
-                  {error && active === "" && <Text h={"10px"}>{error}</Text>}
+                  <Box h={"15px"}>
+                    {error && active === "" && (
+                      <Text h={"10px"} color={"red"}>
+                        {error}
+                      </Text>
+                    )}
+                  </Box>
                   <Button
                     bg={"#000"}
                     color={"#fff"}

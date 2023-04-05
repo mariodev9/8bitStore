@@ -26,8 +26,6 @@ export default function Home() {
 
   useEffect(() => {
     scrollYProgress.onChange((latest) => {
-      console.log(scrollYProgress);
-
       y.set(latest * 750);
       yTitle.set(latest * 300);
 

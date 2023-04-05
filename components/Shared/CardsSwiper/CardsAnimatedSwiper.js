@@ -74,7 +74,6 @@ export function CardsAnimatedSwiper() {
 
   useEffect(() => {
     if (index === 3) {
-      console.log(index, "el index es 3, RESET");
       setIndex(0);
     }
   }, [index]);

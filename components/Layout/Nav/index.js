@@ -21,6 +21,7 @@ import { motion, useScroll } from "framer-motion";
 import NextLink from "next/link";
 import { useRouter } from "next/router";
 import CartContext from "../../../context/CartContext";
+import CartProduct from "../../Shared/CartProduct/CartProduct";
 
 // const Links = ["Shop", "News", "About"];
 
@@ -55,17 +56,12 @@ const CartButton = () => {
           <DrawerCloseButton />
 
           <DrawerBody>
-            Shoppin Cart
-            <Flex direction={"column"} gap={5} py={"20px"}>
+            <Text fontSize={"24px"} fontWeight={700}>
+              Shopping Cart
+            </Text>
+            <Flex direction={"column"} gap={7} py={"20px"}>
               {cart.map((item) => (
-                <Flex key={item.id} align={"start"} justify={"space-between"}>
-                  <Box w={"25%"} h={"25%"}>
-                    {item.img}
-                  </Box>
-                  <Text>{item.title}</Text>
-                  <Text>{item.size}</Text>
-                  <Text>{item.quantity}</Text>
-                </Flex>
+                <CartProduct key={item.id} {...item} />
               ))}
             </Flex>
           </DrawerBody>
@@ -106,6 +102,8 @@ const MobileNav = () => {
           <DrawerCloseButton />
 
           <DrawerBody>
+            <Logo />
+
             <VStack
               spacing={5}
               h={"100%"}
